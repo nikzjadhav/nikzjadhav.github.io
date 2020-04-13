@@ -3373,7 +3373,7 @@ input, select, textarea {
 		position: absolute;
 		top: calc(100% + 10px);
 		left: 0;
-		width: 50%;
+		width: 0%;
 		height: 15px;
 		background-color: rgba(56, 255, 0, 1);
 		border-radius: 1000px;
