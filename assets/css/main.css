@@ -3386,7 +3386,7 @@ input, select, textarea {
 		left: 0;
 		width: 0;
 		height: 15px;
-		background-color: rgba(56, 255, 0, 1);
+		background-color: rgb(0, 155, 219);
 		border-radius: 1000px;
 		animation-duration: .7s;
 		animation-timing-function: ease;
