@@ -3431,13 +3431,13 @@ input, select, textarea {
 		}
 	}
 	
-	.myspecialdiv li.java:after {
-		animation-name: java;
+	.myspecialdiv li.aws:after {
+		animation-name: aws;
 	}
 	
-	@keyframes java {
+	@keyframes aws {
 		to {
-			width: 70%;
+			width: 98%;
 		}
 	}
 	
@@ -3455,4 +3455,7 @@ input, select, textarea {
 		color: black;
 		border: 2px solid #4CAF50;
 		  
+	}
+	.no-underline {
+		text-decoration: none;
 	}
