@@ -2884,6 +2884,7 @@ input, select, textarea {
 
 			#header {
 				width: 21em;
+				height:fit-content;
 			}
 
 				#header > header {
