@@ -492,7 +492,19 @@ progress {
   font-size: 1.25rem;
   font-weight: 300;
 }
-
+.resume-download {
+                background: #2b6cb0;
+                color: white!important;
+                padding: 10px 20px;
+                border-radius: 4px;
+                font-weight: 600;
+                display: inline-block;
+                margin-top: 15px;
+                text-decoration: none!important;
+            }
+.resume-download:hover {
+    background: #2c5282;
+}
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
   font-weight: 300;
@@ -11021,4 +11033,94 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 0;
+}
+
+/* Slider track */
+.slider {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(200px * 24); /* Double the content for seamless looping */
+}
+
+
+/* Individual logo slide */
+.slide {
+    display: contents;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 250px;
+    height: 100px;
+    margin: 0 20px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.slide img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-200px * 12)); /* Move one full set */
+    }
+}
+
+.instructions {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slide img {
+        width: 130px;
+        height: 80px;
+        margin: 0 15px;
+    }
+    
+    .slider {
+        animation-duration: 30s;
+        width: calc(160px * 24);
+    }
+    
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-160px * 12));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .slide img {
+        width: 160px;
+        height: 70px;
+        margin: 0 10px;
+    }
+    
+    .slider {
+        animation-duration: 25s;
+        width: calc(120px * 24);
+    }
+    
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-120px * 12));
+        }
+    }
+}
 }
