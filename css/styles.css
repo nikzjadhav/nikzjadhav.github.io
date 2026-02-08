@@ -10955,57 +10955,7 @@ p.lead {
 .dev-icons {
   font-size: 3rem;
 }
-.slider-container {
-  width: 100%;
-  max-width: 1000px;
-  overflow: hidden;
-  position: relative;
-  padding: 10px 0;
-  margin: auto;
-  background: transparent; /* Removes box-like appearance */
-  box-shadow: none; /* Removes shadow */
-  border-radius: 0; /* Ensures no rounded borders */
-}
-
-.slider {
-  display: flex;
-  width: 200%;
-  animation: slide 18s linear infinite;
-}
-
-.slide {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-}
-
-.slide img {
-  width: 100px;
-  height: auto;
-  opacity: 0.7;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.slide img:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-/* Slide Animation */
-@keyframes slide {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-}
-
-/* Slide Animation */
-@keyframes slide {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-}
+/* Slider Mobile Fix - removed */
 
 
 section.resume-section {
@@ -11037,90 +10987,111 @@ section.resume-section .resume-section-content {
     position: relative;
     overflow: hidden;
     padding: 30px 0;
-}
+  }
 
-/* Slider track */
-.slider {
+  /* Slider track - Desktop version with duplicate for seamless looping */
+  .slider {
     display: flex;
     animation: scroll 40s linear infinite;
-    width: calc(200px * 24); /* Double the content for seamless looping */
-}
+    width: calc(290px * 26);
+  }
 
-
-/* Individual logo slide */
-.slide {
+  /* Individual logo slide - Desktop */
+  .slide {
     display: contents;
     flex-shrink: 0;
-}
+  }
 
-.slide img {
+  .slide img {
     width: 250px;
     height: 100px;
     margin: 0 20px;
     object-fit: contain;
     transition: all 0.3s ease;
     opacity: 0.8;
-}
+    flex-shrink: 0;
+    min-width: 250px;
+  }
 
-.slide img:hover {
+  .slide img:hover {
     transform: scale(1.1);
     filter: grayscale(0);
     opacity: 1;
-}
+  }
 
-/* Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-200px * 12)); /* Move one full set */
-    }
-}
+  /* Animation - Desktop */
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-290px * 13)); }
+  }
 
-.instructions {
+  .instructions {
     text-align: center;
     margin-top: 20px;
     color: #7f8c8d;
     font-size: 0.9rem;
+  }
 }
 
-/* Responsive adjustments */
+/* Mobile/Tablet: Hide second slide (duplicate) and adjust animation */
 @media (max-width: 768px) {
-    .slide img {
-        width: 130px;
-        height: 80px;
-        margin: 0 15px;
-    }
-    
-    .slider {
-        animation-duration: 30s;
-        width: calc(160px * 24);
-    }
-    
-    @keyframes scroll {
-        100% {
-            transform: translateX(calc(-160px * 12));
-        }
-    }
+  .slider-container {
+    padding: 15px 0;
+  }
+
+  /* Hide the second (duplicate) slide on mobile */
+  .slide:nth-child(2) {
+    display: none;
+  }
+
+  .slider {
+    animation-duration: 25s;
+    width: 100%;
+    animation: scrollMobile 25s linear infinite;
+  }
+
+  .slide img {
+    width: 100px;
+    height: 75px;
+    margin: 0 8px;
+    min-width: 100px;
+  }
+
+  /* Mobile animation - only one set of slides */
+  @keyframes scrollMobile {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
 }
 
 @media (max-width: 480px) {
-    .slide img {
-        width: 160px;
-        height: 70px;
-        margin: 0 10px;
-    }
-    
-    .slider {
-        animation-duration: 25s;
-        width: calc(120px * 24);
-    }
-    
-    @keyframes scroll {
-        100% {
-            transform: translateX(calc(-120px * 12));
-        }
-    }
-}
+  /* Hide the second (duplicate) slide on small phones */
+  .slide:nth-child(2) {
+    display: none;
+  }
+
+  .slider-container {
+    padding: 10px 0;
+  }
+
+  .slider {
+    animation: none;
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  .slide {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide img {
+    width: 70px;
+    height: 50px;
+    margin: 5px;
+    min-width: 70px;
+  }
 }
